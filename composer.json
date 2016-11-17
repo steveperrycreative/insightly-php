@@ -18,7 +18,7 @@
     "autoload": {
         "psr-4": {
           "GGDX\\PhpInsightly\\": "src/GGDX/PhpInsightly",
-          "GGDX\\PhpInsightly\\Traits\\": "src/GGDX/PhpInsightly/Traits",
+          "GGDX\\PhpInsightly\\Traits\\": "src/GGDX/PhpInsightly/Traits"
         }
     }
 }
