@@ -26,10 +26,10 @@ Currently a work in progress. The following are all done and usable:
 * Milestones
 * Notes
 * Opportunities
+* Opportunity Categories
 
 
 The following need to be built in:
-* Opportunity Categories
 * Opportunity State Reasons
 * Organisations
 * Permissions
