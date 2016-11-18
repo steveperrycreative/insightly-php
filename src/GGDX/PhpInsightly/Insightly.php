@@ -24,6 +24,9 @@ class Insightly{
     use Traits\Notes;
     use Traits\Opportunities;
     use Traits\OpportunityCategories;
+    use Traits\OpportunityStateReasons;
+    use Traits\Permissions;
+    use Traits\Pipelines;
 
 
     private $request, $api_version;

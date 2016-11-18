@@ -4,7 +4,7 @@
 `composer require ggdx/php-insightly`
 
 
-Currently a work in progress. The following are all done and usable:
+Currently a work in progress. The following traits are all done and usable:
 * Activity Sets
 * Comments
 * Contacts
@@ -27,13 +27,13 @@ Currently a work in progress. The following are all done and usable:
 * Notes
 * Opportunities
 * Opportunity Categories
+* Opportunity State Reasons
+* Permissions
+* Pipelines
 
 
 The following need to be built in:
-* Opportunity State Reasons
 * Organisations
-* Permissions
-* Pipelines
 * Pipeline Stages
 * Project Categories
 * Projects
