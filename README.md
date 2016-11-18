@@ -5,44 +5,44 @@
 
 
 Currently a work in progress. The following are all done and usable:
-*Activity Sets
-*Comments
-*Contacts
-*Countries
-*Currencies
-*Custom Field Groups
-*Custom Fields
-*Emails
-*Error
-*Events
-*File Attachments
-*File Categories
-*Follows
-*Helpers
-*Instance
-*Leads
-*LeadSources
-*LeadStatus
-*Milestones
+* Activity Sets
+* Comments
+* Contacts
+* Countries
+* Currencies
+* Custom Field Groups
+* Custom Fields
+* Emails
+* Error
+* Events
+* File Attachments
+* File Categories
+* Follows
+* Helpers
+* Instance
+* Leads
+* LeadSources
+* LeadStatus
+* Milestones
 
 
 The following need to be built in:
-*Notes
-*Opportunities
-*Opportunity Categories
-*Opportunity State Reasons
-*Organisations
-*Permissions
-*Pipelines
-*Pipeline Stages
-*Project Categories
-*Projects
-*Relationships
-*Tags
-*Task Categories
-*Team Members
-*Teams
-*Users
+* Notes
+* Opportunities
+* Opportunity Categories
+* Opportunity State Reasons
+* Organisations
+* Permissions
+* Pipelines
+* Pipeline Stages
+* Project Categories
+* Projects
+* Relationships
+* Tags
+* Task Categories
+* Team Members
+* Teams
+* Users
 
 ### Example:
 ```php
