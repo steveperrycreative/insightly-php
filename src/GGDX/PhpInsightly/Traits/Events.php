@@ -57,7 +57,7 @@ trait Events{
         }
 
         if(empty($data['EVENT_ID'])){
-            return $this->call('post','Events', $data)
+            return $this->call('post','Events', $data);
         }
 
         return $this->call('put','Events', $data);
