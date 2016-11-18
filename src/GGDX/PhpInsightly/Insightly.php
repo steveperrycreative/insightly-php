@@ -22,6 +22,7 @@ class Insightly{
     use Traits\LeadStatus;
     use Traits\Milestones;
     use Traits\Notes;
+    use Traits\Opportunities;
 
 
     private $request, $api_version;

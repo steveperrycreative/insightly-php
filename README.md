@@ -25,10 +25,10 @@ Currently a work in progress. The following are all done and usable:
 * LeadStatus
 * Milestones
 * Notes
+* Opportunities
 
 
 The following need to be built in:
-* Opportunities
 * Opportunity Categories
 * Opportunity State Reasons
 * Organisations
