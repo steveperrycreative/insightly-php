@@ -1,7 +1,5 @@
 <?php namespace  GGDX\PhpInsightly;
 
-use Exception;
-use InvalidArgumentException;
 use GuzzleHttp\Psr7\Request;
 class InsightlyRequest{
 
@@ -10,7 +8,6 @@ class InsightlyRequest{
     const REQ_PUT = 'PUT';
     const REQ_GET = 'GET';
     const REQ_DELETE = 'DELETE';
-    const REQ_CREATE = 'CREATE';
 
     // Endpoint starts here
     private $base_url = "https://api.insight.ly/";
@@ -144,7 +141,6 @@ class InsightlyRequest{
      */
     private function request($method, $url, $data)
     {
-        //dd($data);
         // Initialize client
         $client = new \GuzzleHttp\Client([
             'base_uri' => $this->base_url,
@@ -160,9 +156,6 @@ class InsightlyRequest{
                     } else {
                         $response = $client->request($method,$url);
                     }
-                    break;
-                case 'CREATE':
-                    $response = $client->request('POST',$url, ['json' => $data]);
                     break;
                 default:
                     $request = new Request($method, $url);
