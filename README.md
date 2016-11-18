@@ -30,6 +30,7 @@ Currently a work in progress. The following traits are all done and usable:
 * Opportunity State Reasons
 * Permissions
 * Pipelines
+* Pipeline Stages
 
 
 The following need to be built in:
