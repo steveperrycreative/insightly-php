@@ -31,12 +31,11 @@ Currently a work in progress. The following traits are all done and usable:
 * Permissions
 * Pipelines
 * Pipeline Stages
+* Project Categories
 
 
 The following need to be built in:
 * Organisations
-* Pipeline Stages
-* Project Categories
 * Projects
 * Relationships
 * Tags

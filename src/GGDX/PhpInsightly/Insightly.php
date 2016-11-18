@@ -28,6 +28,7 @@ class Insightly{
     use Traits\Permissions;
     use Traits\Pipelines;
     use Traits\PipelineStages;
+    use Traits\ProjectCategories;
 
 
     private $request, $api_version;
