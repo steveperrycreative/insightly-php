@@ -24,10 +24,10 @@ Currently a work in progress. The following are all done and usable:
 * LeadSources
 * LeadStatus
 * Milestones
+* Notes
 
 
 The following need to be built in:
-* Notes
 * Opportunities
 * Opportunity Categories
 * Opportunity State Reasons

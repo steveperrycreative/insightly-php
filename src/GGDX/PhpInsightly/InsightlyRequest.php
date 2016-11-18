@@ -68,20 +68,6 @@ class InsightlyRequest{
 
 
     /**
-     * Create
-     *
-     *
-     * @param str url Endpoint
-     * @param string data - JSON
-     * @return string|bool|null
-     */
-    public function create($url, $data)
-    {
-        return $this->request(self::REQ_CREATE, $url, $data);
-    }
-
-
-    /**
      * Put
      *
      *
@@ -156,6 +142,9 @@ class InsightlyRequest{
                     } else {
                         $response = $client->request($method,$url);
                     }
+                    break;
+                case 'PUT':
+                    $response = $client->request('PUT',$url, ['json' => $data]);
                     break;
                 default:
                     $request = new Request($method, $url);
