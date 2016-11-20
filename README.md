@@ -38,10 +38,10 @@ Currently a work in progress. The following traits are all done and usable:
 * Tags
 * Task Categories
 * Tasks
+* Team Members
 
 
 The following need to be built in:
-* Team Members
 * Teams
 * Users
 
