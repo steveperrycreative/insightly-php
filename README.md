@@ -33,12 +33,12 @@ Currently a work in progress. The following traits are all done and usable:
 * Pipeline Stages
 * Project Categories
 * Relationships
+* Tags
 
 
 The following need to be built in:
 * Organisations
 * Projects
-* Tags
 * Task Categories
 * Team Members
 * Teams
