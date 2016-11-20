@@ -180,25 +180,13 @@ trait Contacts{
     public function saveContactInfo(array $data = [], $id = false)
     {
         if(!$id){
-            $this->set_error('addContactInfo() -> $id must be set.');
+            $this->set_error('saveContactInfo() -> $id must be set.');
         }
 
         if(!count($data)){
-            $this->set_error('addContactInfo() -> $data must be provided.');
+            $this->set_error('saveContactInfo() -> $data must be provided.');
         } else {
             $data = $this->dataKeysToUpper($data);
-
-            if(empty($data['TYPE'])){
-                $this->set_error('addContactInfo() -> $data[\'TYPE\'] must be provided.');
-            }
-
-            if(empty($data['LABEL'])){
-                $this->set_error('addContactInfo() -> $data[\'LABEL\'] must be provided.');
-            }
-
-            if(empty($data['DETAIL'])){
-                $this->set_error('addContactInfo() -> $data[\'DETAIL\'] must be provided.');
-            }
         }
 
         if(!empty($data['CONTACT_INFO_ID'])){
