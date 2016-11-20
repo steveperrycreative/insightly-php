@@ -28,6 +28,7 @@ Currently a work in progress. The following traits are all done and usable:
 * Opportunities
 * Opportunity Categories
 * Opportunity State Reasons
+* Organisations
 * Permissions
 * Pipelines
 * Pipeline Stages
@@ -37,7 +38,6 @@ Currently a work in progress. The following traits are all done and usable:
 
 
 The following need to be built in:
-* Organisations
 * Projects
 * Task Categories
 * Team Members
