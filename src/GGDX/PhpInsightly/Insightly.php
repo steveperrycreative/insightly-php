@@ -36,6 +36,7 @@ class Insightly{
     use Traits\TaskCategories;
     use Traits\Tasks;
     use Traits\TeamMembers;
+    use Traits\Teams;
 
 
     private $request, $api_version;

@@ -39,10 +39,10 @@ Currently a work in progress. The following traits are all done and usable:
 * Task Categories
 * Tasks
 * Team Members
+* Teams
 
 
 The following need to be built in:
-* Teams
 * Users
 
 ### Example:
