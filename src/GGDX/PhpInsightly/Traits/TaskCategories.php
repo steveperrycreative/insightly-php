@@ -3,7 +3,7 @@
 trait TaskCategories{
 
     /**
-     * Get all lead Statuses
+     * Get all Task Categories
      *
      * @param int $id - Task category ID
      * @return object

@@ -37,10 +37,10 @@ Currently a work in progress. The following traits are all done and usable:
 * Relationships
 * Tags
 * Task Categories
+* Tasks
 
 
 The following need to be built in:
-* Task Categories
 * Team Members
 * Teams
 * Users
