@@ -44,6 +44,6 @@ trait OpportunityCategories{
             $this->set_error('deleteOpportunityCategory() -> $id must be provided.');
         }
 
-        return !$id ? $this->call('delete','OpportunityCategories/'.$id);
+        return $this->call('delete','OpportunityCategories/'.$id);
     }
 }
