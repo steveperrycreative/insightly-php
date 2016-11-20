@@ -29,6 +29,7 @@ class Insightly{
     use Traits\Pipelines;
     use Traits\PipelineStages;
     use Traits\ProjectCategories;
+    use Traits\Relationships;
 
 
     private $request, $api_version;
