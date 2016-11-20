@@ -15,7 +15,7 @@ trait LeadStatus{
     /**
      * Create / Update lead Status
      *
-     * @param array $data ['LEAD_STATUS_ID' => int, 'LEAD_STATUS' => string, 'FIELD_ORDER' => int, 'STATUS_TYPE' => int]
+     * @param array $data - See https://api.insight.ly/v2.2/#!/LeadStatuses/AddLeadStatus for fields
      * @return object
      */
     public function saveLeadStatus(array $data = [])
@@ -30,11 +30,12 @@ trait LeadStatus{
      * Delete lead Status
      *
      * @param int $id
+     * @return void
      */
     public function deleteLeadStatus($id = false)
     {
         if(!$id){
-            $this->set_error('deleteLeadStatus() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
         return $this->call('delete','LeadStatuses/'.$id);
     }

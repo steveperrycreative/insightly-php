@@ -26,11 +26,11 @@ trait Emails{
     public function createEmailTag($id = false, $tag = false)
     {
         if(!$id){
-            $this->set_error('createEmailTag() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!$tag){
-            $this->set_error('createEmailTag() -> $tag must be provided.');
+            $this->set_error(__FUNCTION__.' -> $tag must be provided.');
         }
 
         return $this->call('post','Emails/'.$id, ['TAG_NAME' => $tag]);
@@ -47,11 +47,11 @@ trait Emails{
     public function deleteEmailTag($id = false, $tag = false)
     {
         if(!$id){
-            $this->set_error('deleteEmailTag() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!$tag){
-            $this->set_error('deleteEmailTag() -> $tag must be provided.');
+            $this->set_error(__FUNCTION__.' -> $tag must be provided.');
         }
 
         return $this->call('delete','Emails/'.$id.'/'.$tag);
@@ -67,7 +67,7 @@ trait Emails{
     public function getEmailComments($id = false)
     {
         if(!$id){
-            $this->set_error('getEmailComments() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
         return $this->call('get','Emails/'.$id.'/Comments');
     }
@@ -77,23 +77,19 @@ trait Emails{
      * Add Comment to Email
      *
      * @param int $id Email ID
-     * @param array $data ['BODY' => string (HTML is allowed), 'OWNER_USER_ID' => int, 'NOTE_ID' => int, 'TASK_ID' => int]
+     * @param array $data - See https://api.insight.ly/v2.2/#!/Emails/AddComment for fields
      * @return object
      */
     public function createEmailComment($id = false, array $data = [])
     {
         if(!$id){
-            $this->set_error('createEmailComment() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!count($data)){
-            $this->set_error('createEmailComment() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
         } else {
             $data = $this->dataKeysToUpper($data);
-
-            if(empty($data['BODY'])){
-                $this->set_error('createEmailComment() -> $data[\'BODY\'] must be provided.');
-            }
         }
 
         return $this->call('post','Emails/'.$id.'/Comments', $data);
@@ -104,11 +100,12 @@ trait Emails{
      * Stop following email
      *
      * @param int $id Email ID
+     * @return void
      */
     public function unfollowEmail($id = false)
     {
         if(!$id){
-            $this->set_error('unfollowEmail() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Emails/'.$id.'/Follow');
@@ -119,12 +116,12 @@ trait Emails{
      * Check email following status
      *
      * @param int $id Email ID
-     * @return bool
+     * @return object
      */
     public function isEmailFollowed($id = false)
     {
         if(!$id){
-            $this->set_error('isEmailFollowed() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Emails/'.$id.'/Follow');
@@ -135,12 +132,12 @@ trait Emails{
      * Follow email
      *
      * @param int $id Email ID
-     * @return bool
+     * @return object
      */
      public function followEmail($id = false)
      {
          if(!$id){
-             $this->set_error('followEmail() -> $id must be provided.');
+             $this->set_error(__FUNCTION__.' -> $id must be provided.');
          }
 
          return $this->call('post','Emails/'.$id.'/Follow');
@@ -156,13 +153,10 @@ trait Emails{
       public function getEmailAttachment($id = false)
       {
           if(!$id){
-              $this->set_error('getEmailAttachment() -> $id must be provided.');
+              $this->set_error(__FUNCTION__.' -> $id must be provided.');
           }
 
           return $this->call('get','Emails/'.$id.'/FileAttachments');
       }
-
-
-
 
 }

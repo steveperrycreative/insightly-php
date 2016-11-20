@@ -22,7 +22,7 @@ trait Events{
     public function getEvent($id = false)
     {
         if(!$id){
-            $this->set_error('getEvent() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->getEvents($id);
@@ -33,34 +33,18 @@ trait Events{
      * Create/Update event
      *
      * @param int $id Event ID
-     * @param array $data ['EVENT_ID' => int, 'TITLE' => string, 'LOCATION' => string, 'DETAILS' => string, 'START_DATE_UTC' => string (ISO 8601), 'END_DATE_UTC' => string (ISO 8601), 'ALL_DAY' => bool, 'PUBLICLY_VISIBLE' => bool, 'REMINDER_DATE_UTC' => string (ISO 8601), 'OWNER_USER_ID' => int]
+     * @param array $data - See https://api.insight.ly/v2.2/#!/Events/AddEvent for fields
      * @return object
      */
     public function saveEvent(array $data = [])
     {
         if(!count($data)){
-            $this->set_error('saveEvent() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
         } else {
             $data = $this->dataKeysToUpper($data);
-
-            if(empty($data['TITLE'])){
-                $this->set_error('saveEvent() -> $data[\'TITLE\'] must be provided.');
-            }
-
-            if(empty($data['START_DATE_UTC'])){
-                $this->set_error('saveEvent() -> $data[\'START_DATE_UTC\'] must be provided.');
-            }
-
-            if(empty($data['END_DATE_UTC'])){
-                $this->set_error('saveEvent() -> $data[\'END_DATE_UTC\'] must be provided.');
-            }
         }
 
-        if(empty($data['EVENT_ID'])){
-            return $this->call('post','Events', $data);
-        }
-
-        return $this->call('put','Events', $data);
+        return empty($data['EVENT_ID']) ? $this->call('post','Events', $data) : $this->call('put','Events', $data);
     }
 
 
@@ -72,7 +56,7 @@ trait Events{
     public function deleteEvent($id = false)
     {
         if(!$id){
-            $this->set_error('deleteEvent() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete', 'Events/'.$id);

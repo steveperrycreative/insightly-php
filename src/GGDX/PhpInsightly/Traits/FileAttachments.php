@@ -11,7 +11,7 @@ trait FileAttachments{
     public function getAttachment($id = false)
     {
         if(!$id){
-            $this->set_error('getAttachment() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
         return $this->call('get','FileAttachments/'.$id);
     }
@@ -21,11 +21,12 @@ trait FileAttachments{
      * Delete attachment
      *
      * @param int $id Attachment ID
+     * @return void
      */
     public function deleteAttachment($id = false)
     {
         if(!$id){
-            $this->set_error('deleteAttachment() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
         return $this->call('delete','FileAttachments/'.$id);
     }

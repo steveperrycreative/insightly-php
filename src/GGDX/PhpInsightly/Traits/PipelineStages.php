@@ -3,7 +3,7 @@
 trait PipelineStages{
 
     /**
-     * Get pipeline stages (if $id - single pipeline)
+     * Get pipeline stages (if $id - single stage)
      *
      * @return object
      */

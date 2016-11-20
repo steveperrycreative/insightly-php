@@ -22,12 +22,12 @@ trait ProjectCategories{
     public function saveProjectCategory(array $data = [])
     {
         if(!count($data)){
-            $this->set_error('saveProjectCategory() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
+        } else {
+            $data = $this->dataKeysToUpper($data);
         }
 
-        $data = $this->dataKeysToUpper($data);
-
-        return !$data['CATEGORY_ID'] ? $this->call('post','ProjectCategories', $data) : $this->call('put','ProjectCategories', $data);
+        return empty($data['CATEGORY_ID']) ? $this->call('post','ProjectCategories', $data) : $this->call('put','ProjectCategories', $data);
     }
 
 
@@ -35,15 +35,15 @@ trait ProjectCategories{
      * Delete project category
      *
      * @param int $id Category ID
-     * @return object
+     * @return void
      */
     public function deleteProjectCategory($id = false)
     {
         if(!count($id)){
-            $this->set_error('saveProjectCategory() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
+        } else {
+            $data = $this->dataKeysToUpper($data);
         }
-
-        $data = $this->dataKeysToUpper($data);
 
         return !$this->call('delete','ProjectCategories/'.$id);
     }

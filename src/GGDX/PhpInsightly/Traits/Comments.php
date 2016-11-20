@@ -10,13 +10,13 @@ trait Comments{
     /**
      * Get comment
      *
-     * @param int $id Comment ID (REQUIRED)
+     * @param int $id Comment ID
      * @return object
      */
     public function getComment($id = false)
     {
         if(!$id){
-            $this->set_error('getComment() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Comments/'.$id);
@@ -25,13 +25,13 @@ trait Comments{
     /**
      * Get comment attachment
      *
-     * @param int $id Comment ID (REQUIRED)
+     * @param int $id Comment ID
      * @return object
      */
     public function getCommentAttachment($id = false)
     {
         if(!$id){
-            $this->set_error('getCommentAttachment() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Comments/'.$id.'/FileAttachments');
@@ -41,18 +41,18 @@ trait Comments{
     /**
      * Update comment
      *
-     * @param int $id Comment ID (REQUIRED)
-     * @param string $body Comment (REQUIRED)
+     * @param int $id Comment ID
+     * @param string $body Comment body
      * @return object
      */
     public function updateComment($id = false, $body = false)
     {
         if(!$id){
-            $this->set_error('updateComment() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!$body || strlen($body) < 1){
-            $this->set_error('updateComment() -> $body must be set.');
+            $this->set_error(__FUNCTION__.' -> $body must be set.');
         }
 
         return $this->call('put','Comments/'.$id, ['BODY' => $body]);
@@ -62,13 +62,13 @@ trait Comments{
     /**
      * Delete comment
      *
-     * @param int $id Comment ID (REQUIRED)
+     * @param int $id Comment ID
      * @return object
      */
     public function deleteComment($id = false)
     {
         if(!$id){
-            $this->set_error('deleteComment() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
         return $this->call('delete','Comments/'.$id);
     }

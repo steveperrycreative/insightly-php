@@ -15,7 +15,7 @@ trait LeadSources{
     /**
      * Create / Update lead source
      *
-     * @param array $data ['LEAD_SOURCE_ID' => int, 'LEAD_SOURCE' => string, 'FIELD_ORDER' => int]
+     * @param array $data - See https://api.insight.ly/v2.2/#!/LeadSources/AddLeadSource for field
      * @return object
      */
     public function saveLeadSource(array $data = [])
@@ -30,12 +30,12 @@ trait LeadSources{
      * Delete lead source
      *
      * @param int $id
-     * @return object
+     * @return void
      */
     public function deleteLeadSource($id = false)
     {
         if(!$id){
-            $this->set_error('deleteLeadSource() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
         return $this->call('delete','LeadSources/'.$id);
     }

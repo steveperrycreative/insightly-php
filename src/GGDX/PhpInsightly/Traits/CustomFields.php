@@ -7,7 +7,7 @@ trait CustomFields{
      *
      * @return object
      */
-    public function getCustomField()
+    public function getCustomFields()
     {
         return $this->call('get','CustomFields');
     }

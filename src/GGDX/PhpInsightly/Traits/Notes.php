@@ -25,12 +25,12 @@ trait Notes{
     public function saveNote(array $data = [])
     {
         if(!count($data)){
-            $this->set_error('saveNote() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
         }
 
         $data = $this->dataKeysToUpper($data);
 
-        return !empty($data['NOTE_ID']) ? $this->call('get','Notes',$data) : $this->call('put','Notes',$data);
+        return empty($data['NOTE_ID']) ? $this->call('post','Notes',$data) : $this->call('put','Notes',$data);
     }
 
 
@@ -43,7 +43,7 @@ trait Notes{
     public function deleteNote($id = false)
     {
         if(!$id){
-            $this->set_error('deleteNote() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Notes/'.$id);
@@ -59,7 +59,7 @@ trait Notes{
     public function getNoteComments($id = false)
     {
         if(!$id){
-            $this->set_error('getNoteComments() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Notes/'.$id.'/Comments');
@@ -70,20 +70,20 @@ trait Notes{
      * Add note comment
      *
      * @param int $id Note ID
-     * @param string $body - Body of comment
+     * @param array $data - See https://api.insight.ly/v2.2/#!/Notes/AddComment for fields
      * @return object
      */
-    public function addNoteComment($id = false, $body = false)
+    public function addNoteComment($id = false, array $data = [])
     {
         if(!$id){
-            $this->set_error('addNoteComment() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
-        if(!$body){
-            $this->set_error('addNoteComment() -> $body must be provided.');
+        if(!count($data)){
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
         }
 
-        return $this->call('post','Notes/'.$id.'/Comments', ['BODY' => $body]);
+        return $this->call('post','Notes/'.$id.'/Comments', $data);
     }
 
 
@@ -91,12 +91,12 @@ trait Notes{
      * Unfollow note
      *
      * @param int $id Note ID
-     * @return object
+     * @return void
      */
     public function unfollowNote($id = false)
     {
         if(!$id){
-            $this->set_error('unfollowNote() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Notes/'.$id.'/Follow');
@@ -112,7 +112,7 @@ trait Notes{
     public function followNote($id = false)
     {
         if(!$id){
-            $this->set_error('followNote() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('post','Notes/'.$id.'/Follow');
@@ -128,7 +128,7 @@ trait Notes{
     public function isFollowNote($id = false)
     {
         if(!$id){
-            $this->set_error('isFollowNote() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Notes/'.$id.'/Follow');
@@ -144,7 +144,7 @@ trait Notes{
     public function getNoteAttachments($id = false)
     {
         if(!$id){
-            $this->set_error('getNoteAttachments() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Notes/'.$id.'/FileAttachments');

@@ -23,12 +23,12 @@ trait OpportunityCategories{
     public function saveOpportunityCategory(array $data = [])
     {
         if(!count($data)){
-            $this->set_error('saveOpportunityCategory() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
+        } else {
+            $data = $this->dataKeysToUpper($data);
         }
 
-        $data = $this->dataKeysToUpper($data);
-
-        return !count($data['CATEGORY_ID']) ? $this->call('post','OpportunityCategories', $data) : $this->call('put','OpportunityCategories', $data);
+        return !empty($data['CATEGORY_ID']) ? $this->call('put','OpportunityCategories', $data) : $this->call('post','OpportunityCategories', $data);
     }
 
 
@@ -36,12 +36,12 @@ trait OpportunityCategories{
      * Deactivate opportunity category
      *
      * @param int $id Category ID
-     * @return object
+     * @return void
      */
     public function deleteOpportunityCategory($id = false)
     {
         if(!$id){
-            $this->set_error('deleteOpportunityCategory() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','OpportunityCategories/'.$id);

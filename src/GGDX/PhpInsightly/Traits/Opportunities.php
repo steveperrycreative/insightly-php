@@ -15,15 +15,15 @@ trait Opportunities{
 
 
     /**
-     * Create / Update opportunity ($data['OPPORTUNITY_ID'] required for update)
+     * Create / Update opportunity
      *
-     * @param array $data
+     * @param array $data - See https://api.insight.ly/v2.2/#!/Opportunities/AddOpportunity for fields
      * @return object
      */
     public function saveOpportinity(array $data = [])
     {
         if(!count($data)){
-            $this->set_error('saveOpportinity() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
         }
 
         $data = $this->dataKeysToUpper($data);
@@ -36,12 +36,12 @@ trait Opportunities{
      * Delete opportunity
      *
      * @param int $id Opportunity ID
-     * @return object
+     * @return void
      */
     public function deleteOpportinity($id = false)
     {
         if(!$id){
-            $this->set_error('deleteOpportinity() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Opportunities/'.$id);
@@ -57,7 +57,7 @@ trait Opportunities{
     public function getOpportinityImage($id = false)
     {
         if(!$id){
-            $this->set_error('getOpportinityImage() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Opportunities/'.$id.'/Image');
@@ -73,7 +73,7 @@ trait Opportunities{
     public function deleteOpportinityImage($id = false)
     {
         if(!$id){
-            $this->set_error('deleteOpportinityImage() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Opportunities/'.$id.'/Image');
@@ -89,13 +89,13 @@ trait Opportunities{
     public function updateOpportinityCustomFields($id = false, array $data = [])
     {
         if(!$id){
-            $this->set_error('updateOpportinityCustomFields() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         $data = $this->dataKeysToUpper($data);
 
-        if(!$data){
-            $this->set_error('updateOpportinityCustomFields() -> $data must be provided.');
+        if(!count($data)){
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
         }
 
         return $this->call('delete','Opportunities/'.$id.'/CustomFields');
@@ -112,11 +112,11 @@ trait Opportunities{
     public function addOpportinityTag($id = false, $tag = false)
     {
         if(!$id){
-            $this->set_error('addOpportinityTag() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!$tag){
-            $this->set_error('addOpportinityTag() -> $tag must be provided.');
+            $this->set_error(__FUNCTION__.' -> $tag must be provided.');
         }
 
         return $this->call('post','Opportunities/'.$id.'/Events', ['TAG_NAME' => $tag]);
@@ -128,16 +128,16 @@ trait Opportunities{
      *
      * @param int $id Opportunity ID
      * @param string $tag
-     * @return object
+     * @return void
      */
     public function deleteOpportinityTag($id = false, $tag = false)
     {
         if(!$id){
-            $this->set_error('addOpportinityTag() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!$tag){
-            $this->set_error('addOpportinityTag() -> $tag must be provided.');
+            $this->set_error(__FUNCTION__.' -> $tag must be provided.');
         }
 
         return $this->call('delete','Opportunities/'.$id.'/Events/'.$tag);
@@ -153,7 +153,7 @@ trait Opportunities{
     public function getOpportinityEvents($id = false)
     {
         if(!$id){
-            $this->set_error('getOpportinityEvents() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Opportunities/'.$id.'/Events');
@@ -169,7 +169,7 @@ trait Opportunities{
     public function getOpportinityNotes($id = false)
     {
         if(!$id){
-            $this->set_error('getOpportinityNotes() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Opportunities/'.$id.'/Notes');
@@ -185,7 +185,7 @@ trait Opportunities{
     public function getOpportinityEmails($id = false)
     {
         if(!$id){
-            $this->set_error('getOpportinityEmails() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Opportunities/'.$id.'/Emails');
@@ -201,7 +201,7 @@ trait Opportunities{
     public function getOpportinityStateHistory($id = false)
     {
         if(!$id){
-            $this->set_error('getOpportinityStateHistory() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Opportunities/'.$id.'/StateHistory');
@@ -217,7 +217,7 @@ trait Opportunities{
     public function getOpportinityTasks($id = false)
     {
         if(!$id){
-            $this->set_error('getOpportinityTasks() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Opportunities/'.$id.'/Tasks');
@@ -233,7 +233,7 @@ trait Opportunities{
     public function getOpportinityAttachments($id = false)
     {
         if(!$id){
-            $this->set_error('getOpportinityAttachments() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Opportunities/'.$id.'/Attachments');
@@ -250,13 +250,13 @@ trait Opportunities{
     public function addOpportinityNote($id = false, array $data = [])
     {
         if(!$id){
-            $this->set_error('addOpportinityNote() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
-        $data = $this->dataKeysToUpper($data);
-
         if(!count($data)){
-            $this->set_error('addOpportinityNote() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
+        } else {
+            $data = $this->dataKeysToUpper($data);
         }
 
         return $this->call('post','Opportunities/'.$id.'/Notes', $data);
@@ -272,7 +272,7 @@ trait Opportunities{
     public function followOpportunity($id = false)
     {
         if(!$id){
-            $this->set_error('followOpportunities() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('post','Opportunities/'.$id.'/Follow');
@@ -283,12 +283,12 @@ trait Opportunities{
      * Unfollow opportunities
      *
      * @param int $id Opportunity ID
-     * @return object
+     * @return void
      */
     public function unfollowOpportunity($id = false)
     {
         if(!$id){
-            $this->set_error('unfollowOpportunities() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Opportunities/'.$id.'/Follow');
@@ -304,7 +304,7 @@ trait Opportunities{
     public function isFollowOpportunity($id = false)
     {
         if(!$id){
-            $this->set_error('isFollowOpportunity() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Opportunities/'.$id.'/Follow');
@@ -312,15 +312,15 @@ trait Opportunities{
 
 
     /**
-     * Clear pipeline
+     * Clear opportunity pipeline
      *
      * @param int $id Opportunity ID
-     * @return object
+     * @return void
      */
     public function clearOpportinityPipeline($id = false)
     {
         if(!$id){
-            $this->set_error('clearOpportinityPipeline() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Opportunities/'.$id.'/Pipeline');
@@ -337,13 +337,13 @@ trait Opportunities{
     public function changeOpportinityPipeline($id = false, array $data = [])
     {
         if(!$id){
-            $this->set_error('changeOpportinityPipeline() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
-        $data = $this->dataKeysToUpper($data);
-
         if(!count($data)){
-            $this->set_error('addOpportinityNote() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
+        } else {
+            $data = $this->dataKeysToUpper($data);
         }
 
         return $this->call('put','Opportunities/'.$id.'/Pipeline');
@@ -360,13 +360,15 @@ trait Opportunities{
     public function changeOpportinityPipelineStage($id = false, array $data = [])
     {
         if(!$id){
-            $this->set_error('changeOpportinityPipelineStage() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         $data = $this->dataKeysToUpper($data);
 
         if(!count($data)){
-            $this->set_error('changeOpportinityPipelineStage() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
+        } else {
+            $data = $this->dataKeysToUpper($data);
         }
 
         return $this->call('put','Opportunities/'.$id.'/PipelineStage');

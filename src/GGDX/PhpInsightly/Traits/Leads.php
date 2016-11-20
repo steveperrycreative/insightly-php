@@ -24,11 +24,7 @@ trait Leads{
     {
         $data = $this->dataKeysToUpper($data);
 
-        if(!empty($data['LEAD_ID'])){
-            return $this->call('put','Leads', $data);
-        }
-
-        return $this->call('post','Leads', $data);
+        return empty($data['LEAD_ID']) ? $this->call('post','Leads', $data) : $this->call('put','Leads', $data);
     }
 
 
@@ -40,7 +36,7 @@ trait Leads{
     public function deleteLead($id = false)
     {
         if(!$id){
-            $this->set_error('deleteLead() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Leads/'.$id);
@@ -55,7 +51,7 @@ trait Leads{
     public function deleteLeadImage($id = false)
     {
         if(!$id){
-            $this->set_error('deleteLeadImage() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Leads/'.$id.'/Image');
@@ -71,7 +67,7 @@ trait Leads{
     public function getLeadImage($id = false)
     {
         if(!$id){
-            $this->set_error('getLeadImage() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Leads/'.$id.'/Image');
@@ -82,17 +78,17 @@ trait Leads{
      * Update lead Custom Field
      *
      * @param int $id Lead ID
-     * @param array $data ['CUSTOM_FIELD_ID' => string, 'FIELD_VALUE' => mixed]
+     * @param array $data - See https://api.insight.ly/v2.2/#!/Leads/UpdateCustomField for fields
      * @return object
      */
     public function updateLeadCustomField($id = false, array $data = [])
     {
         if(!$id){
-            $this->set_error('updateLeadCustomField() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!count($data)){
-            $this->set_error('updateLeadCustomField() -> $data must be provided.');
+            $this->set_error(__FUNCTION__.' -> $data must be provided.');
         }
 
         $data = $this->dataKeysToUpper($data);
@@ -106,15 +102,16 @@ trait Leads{
      *
      * @param int $id Lead ID
      * @param int $cf_id Custom Field ID
+     * @return void
      */
     public function deleteLeadCustomField($id = false, $cf_id = false)
     {
         if(!$id){
-            $this->set_error('deleteLeadCustomField() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!$cf_id){
-            $this->set_error('deleteLeadCustomField() -> $cf_id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $cf_id must be provided.');
         }
 
         return $this->call('delete','Leads/'.$id.'/CustomFields/'.$cf_id);
@@ -131,11 +128,11 @@ trait Leads{
     public function addLeadTag($id = false, $tag = false)
     {
         if(!$id){
-            $this->set_error('addLeadTag() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!$tag){
-            $this->set_error('addLeadTag() -> $tag must be provided.');
+            $this->set_error(__FUNCTION__.' -> $tag must be provided.');
         }
 
         return $this->call('post','Leads/'.$id.'/Tags',['TAG_NAME' => $tag]);
@@ -147,15 +144,16 @@ trait Leads{
      *
      * @param int $id Lead ID
      * @param string $tag Tag name
+     * @return void
      */
     public function deleteLeadTag($id = false, $tag = false)
     {
         if(!$id){
-            $this->set_error('deleteLeadTag() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         if(!$tag){
-            $this->set_error('deleteLeadTag() -> $tag must be provided.');
+            $this->set_error(__FUNCTION__.' -> $tag must be provided.');
         }
 
         return $this->call('delete','Leads/'.$id.'/Tags/'.$tag);
@@ -171,7 +169,7 @@ trait Leads{
     public function getLeadEvents($id = false)
     {
         if(!$id){
-            $this->set_error('getLeadEvents() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Leads/'.$id.'/Events');
@@ -187,7 +185,7 @@ trait Leads{
     public function getLeadNotes($id = false)
     {
         if(!$id){
-            $this->set_error('getLeadNotes() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Leads/'.$id.'/Notes');
@@ -198,23 +196,19 @@ trait Leads{
      * Create Lead note
      *
      * @param int $id Lead ID
-     * @param array $data
+     * @param array $data - See https://api.insight.ly/v2.2/#!/Leads/AddNote for fields
      * @return object
      */
     public function createLeadNote($id = false, array $data = [])
     {
         if(!$id){
-            $this->set_error('createLeadNote() -> $id must be set.');
+            $this->set_error(__FUNCTION__.' -> $id must be set.');
         }
 
         if(!count($data)){
-            $this->set_error('createLeadNote() -> $data must be set.');
+            $this->set_error(__FUNCTION__.' -> $data must be set.');
         } else {
             $data = $this->dataKeysToUpper($data);
-
-            if(empty($data['TITLE'])){
-                $this->set_error('createLeadNote() -> $data[\'TITLE\'] must be set.');
-            }
         }
 
         return $this->call('post','Leads/'.$id.'/Notes', $data);
@@ -230,7 +224,7 @@ trait Leads{
     public function isFollowLead($id = false)
     {
         if(!$id){
-            $this->set_error('isFollowLead() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Leads/'.$id.'/Follow');
@@ -246,7 +240,7 @@ trait Leads{
     public function followLead($id = false)
     {
         if(!$id){
-            $this->set_error('followLead() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('post','Leads/'.$id.'/Follow');
@@ -257,12 +251,12 @@ trait Leads{
      * Unfollow lead
      *
      * @param int $id Lead ID
-     * @return object
+     * @return void
      */
     public function unfollowLead($id = false)
     {
         if(!$id){
-            $this->set_error('unfollowLead() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','Leads/'.$id.'/Follow');
@@ -278,7 +272,7 @@ trait Leads{
     public function getLeadAttachments($id = false)
     {
         if(!$id){
-            $this->set_error('getLeadAttachments() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Leads/'.$id.'/FileAttachments');
@@ -294,7 +288,7 @@ trait Leads{
     public function getLeadEmails($id = false)
     {
         if(!$id){
-            $this->set_error('getLeadEmails() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Leads/'.$id.'/Emails');
@@ -310,7 +304,7 @@ trait Leads{
     public function getLeadTasks($id = false)
     {
         if(!$id){
-            $this->set_error('getLeadTasks() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('get','Leads/'.$id.'/Tasks');

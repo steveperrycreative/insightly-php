@@ -10,30 +10,19 @@ trait FileCategories{
      */
     public function getFileCategories($id = false)
     {
-        if(!$id){
-            return $this->call('get','FileFileCategories');
-        }
-        return $this->call('get','FileFileCategories/'.$id);
+        return !$id ? $this->call('get','FileFileCategories') : $this->call('get','FileFileCategories/'.$id);
     }
 
 
     /**
      * Create/Update file categories
      *
-     * @param array $data ['CATEGORY_ID' => int, 'CATEGORY_NAME' => string, 'ACTIVE' => bool, 'BACKGROUND_COLOR' => string (hex, i.e. F4C00A)]
+     * @param array $data - See https://api.insight.ly/v2.2/#!/FileCategories/AddFileCategory for fields
      * @return object
      */
     public function saveFileCategory(array $data = [])
     {
-        if(empty($data['CATEGORY_NAME'])){
-            $this->set_error('saveFileCategory() -> $data[\'CATEGORY_NAME\'] must be provided.');
-        }
-
-        if(empty($data['CATEGORY_ID'])){
-            return $this->call('post','FileFileCategories', $data);
-        }
-
-        return $this->call('put','FileFileCategories', $data);
+        return empty($data['CATEGORY_ID']) ? $this->call('post','FileFileCategories', $data) : $this->call('put','FileFileCategories', $data);
     }
 
 
@@ -45,7 +34,7 @@ trait FileCategories{
     public function deleteFileCategory($id = false)
     {
         if(!$id){
-            $this->set_error('deleteFileCategory() -> $id must be provided.');
+            $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
         return $this->call('delete','FileCategories/'.$id);
