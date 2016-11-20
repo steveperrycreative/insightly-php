@@ -1,6 +1,6 @@
 <?php namespace GGDX\PhpInsightly\Traits;
 
-trait getRelationships{
+trait Relationships{
 
     /**
      * Get list of relationships
