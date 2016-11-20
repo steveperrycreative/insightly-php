@@ -36,6 +36,7 @@ Currently a work in progress. The following traits are all done and usable:
 * Projects
 * Relationships
 * Tags
+* Task Categories
 
 
 The following need to be built in:

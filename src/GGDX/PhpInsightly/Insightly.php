@@ -33,6 +33,7 @@ class Insightly{
     use Traits\Projects;
     use Traits\Relationships;
     use Traits\Tags;
+    use Traits\TaskCategories;
 
 
     private $request, $api_version;
