@@ -30,6 +30,7 @@ class Insightly{
     use Traits\Pipelines;
     use Traits\PipelineStages;
     use Traits\ProjectCategories;
+    use Traits\Projects;
     use Traits\Relationships;
     use Traits\Tags;
 

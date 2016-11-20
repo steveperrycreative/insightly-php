@@ -363,8 +363,6 @@ trait Opportunities{
             $this->set_error(__FUNCTION__.' -> $id must be provided.');
         }
 
-        $data = $this->dataKeysToUpper($data);
-
         if(!count($data)){
             $this->set_error(__FUNCTION__.' -> $data must be provided.');
         } else {
