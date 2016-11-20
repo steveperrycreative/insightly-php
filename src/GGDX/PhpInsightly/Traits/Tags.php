@@ -3,7 +3,7 @@
 trait Tags{
 
     /**
-     * Get list of relationships
+     * Get list of tags
      *
      * @param string $type - Optional, returns tags associated with record type - contacts|leads|opportunities|organisations|projects|emails
      * @return object
