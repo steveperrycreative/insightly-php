@@ -30,7 +30,7 @@ trait Notes{
 
         $data = $this->dataKeysToUpper($data);
 
-        return !empty($data['NOTE_ID']) ? $this->call('get','Notes',$data) : return $this->call('put','Notes',$data);;
+        return !empty($data['NOTE_ID']) ? $this->call('get','Notes',$data) : $this->call('put','Notes',$data);
     }
 
 
