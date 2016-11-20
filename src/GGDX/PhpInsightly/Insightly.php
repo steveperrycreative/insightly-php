@@ -25,6 +25,7 @@ class Insightly{
     use Traits\Opportunities;
     use Traits\OpportunityCategories;
     use Traits\OpportunityStateReasons;
+    use Traits\Organisations;
     use Traits\Permissions;
     use Traits\Pipelines;
     use Traits\PipelineStages;
