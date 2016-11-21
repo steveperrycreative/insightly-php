@@ -1,5 +1,5 @@
 {
-    "name": "ggdx/insightly-php",
+    "name": "ggdx/php-insightly",
     "description": "PHP SDK for Insightly CRM API",
     "keywords": ["insightly", "php", "crm"],
     "minimum-stability": "stable",
