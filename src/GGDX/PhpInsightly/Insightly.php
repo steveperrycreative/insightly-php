@@ -33,7 +33,7 @@ class Insightly{
     use Traits\Projects;
     use Traits\Relationships;
     use Traits\Tags;
-    use Traits\TaskCategories;
+    //use Traits\TaskCategories;
     use Traits\Tasks;
     use Traits\TeamMembers;
     use Traits\Teams;

@@ -1,6 +1,6 @@
 <?php namespace GGDX\PhpInsightly\Traits;
 
-trait TaskCategories{
+trait Tasks{
 
     /**
      * Get all Tasks
@@ -103,7 +103,7 @@ trait TaskCategories{
      * @param int $id - Task category ID
      * @return object
      */
-    public function followTask($id = false)
+    public function unfollowTask($id = false)
     {
         if(!$id){
             $this->set_error(__FUNCTION__.' -> $id must be provided.');

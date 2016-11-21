@@ -10,7 +10,7 @@ trait Projects{
      */
     public function getProjects($id = false)
     {
-        return !$id ? $this->call('get','Projects') ? $this->call('get','Projects/'.$id);
+        return !$id ? $this->call('get','Projects') : $this->call('get','Projects/'.$id);
     }
 
     /**
