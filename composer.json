@@ -1,19 +1,5 @@
 {
-<<<<<<< HEAD
-    "name": "insightly/insightly-php",
-    "description": "This library provides user friendly access to the version 2.1 REST API for Insightly",
-    "version": "0.2",
-    "minimum-stability": "dev",
-
-    "require": {
-        "php": ">=5.4",
-        "ext-curl": "*"
-    },
-
-    "autoload": {
-        "classmap": ["insightly.php"]
-=======
-    "name": "ggdx/php-insightly",
+    "name": "ggdx/insightly-php",
     "description": "PHP SDK for Insightly CRM API",
     "keywords": ["insightly", "php", "crm"],
     "minimum-stability": "stable",
@@ -33,6 +19,5 @@
           "GGDX\\PhpInsightly\\": "src/GGDX/PhpInsightly",
           "GGDX\\PhpInsightly\\Traits\\": "src/GGDX/PhpInsightly/Traits"
         }
->>>>>>> php-insightly/master
     }
 }
