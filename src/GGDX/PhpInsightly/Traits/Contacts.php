@@ -16,10 +16,6 @@ trait Contacts{
      */
     public function getContacts($id = false)
     {
-       if($id != false){
-           $this->set_error(__FUNCTION__.' -> $id must be provided.');
-       }
-
        return $this->call('get','Contacts/'.$id);
     }
 
