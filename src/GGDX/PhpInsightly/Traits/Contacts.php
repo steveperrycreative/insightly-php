@@ -34,7 +34,7 @@ trait Contacts{
 
         $data = $this->dataKeysToUpper($data);
 
-        return !$id ? $this->call('post','Contacts', $data) : $this->call('put','Contacts', $data);
+        return empty($data['CONTACT_ID']) ? $this->call('post','Contacts', $data) : $this->call('put','Contacts', $data);
     }
 
 
