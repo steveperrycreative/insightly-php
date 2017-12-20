@@ -15,8 +15,14 @@ trait Helpers{
     private function dataKeysToUpper($data)
     {
         foreach ($data as $key => $value) {
-            $data[strtoupper($key)] = $value;
-            unset($data[$key]);
+
+            if (strtoupper($key) !== $key) {
+
+                $data[strtoupper($key)] = $value;
+                unset($data[$key]);
+                
+            }
+
         }
 
         return $data;
