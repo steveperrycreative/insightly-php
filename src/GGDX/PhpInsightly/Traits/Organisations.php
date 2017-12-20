@@ -10,7 +10,7 @@ trait Organisations{
      */
     public function getOrganisations($id = false)
     {
-        return !$type ? $this->call('get','Organisations') : $this->call('get','Organisations/'.$id);
+        return !$id ? $this->call('get','Organisations') : $this->call('get','Organisations/'.$id);
     }
     public function getOrganizations($id = false)
     {
