@@ -3,10 +3,6 @@
     "description": "PHP SDK for Insightly CRM API",
     "keywords": ["insightly", "php", "crm"],
     "minimum-stability": "stable",
-    "require": {
-        "php": ">=5.5.9",
-        "guzzlehttp/guzzle": "^7.2"
-    },
     "license": "MIT",
     "authors": [
         {
